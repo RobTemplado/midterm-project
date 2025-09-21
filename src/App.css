@@ -1,0 +1,640 @@
+.solo-center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+/* ===================== */
+/* Custom screens from AswangHunter.jsx */
+/* ===================== */
+
+.welcome-bg {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: #000;
+}
+
+.welcome-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 400px;
+  width: 100%;
+  padding: 2em;
+  margin-left: 3em;
+  border-radius: 16px;
+  background: rgba(0,0,0,0.85);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+}
+
+.welcome-title {
+  color: #ff3c3c;
+  margin-bottom: 0.3em;
+  text-align: left;
+  letter-spacing: 2px;
+  font-size: 3.5em;
+}
+
+.welcome-start-btn {
+  padding: .9em 2em;
+  font-size: 1.1em;
+  border-radius: 8px;
+  background: #ff3c3c;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.name-bg {
+  min-height: 100vh;
+  width: 100vw;
+  background: url('src/assets/welcomearch.png') center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.start-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  box-shadow: none;
+  padding: 2em;
+  border-radius: 0;
+  min-width: 220px;
+}
+
+.name-input {
+  width: 80%;
+  padding: 0.75em 1em;
+  font-size: 1.1em;
+  border-radius: 8px;
+  border: 1px solid #ff3c3c;
+  margin-bottom: .1em;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.welcome-bg-image {
+  min-height: 100vh;
+  width: 100vw;
+  background: url('src/assets/hellcome.png') center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-message {
+  color: #ff3c3c;
+  margin-bottom: 1em;
+  font-size: 2.2em;
+  text-align: center;
+  text-shadow: 2px 2px 8px #000;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+/* ===================== */
+/* Lore Screen Overlay   */
+/* ===================== */
+.lore-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('src/assets/hellcome.png') center center / cover no-repeat;
+  z-index: 1000;
+}
+.lore-title {
+  color: #ff3c3c;
+  margin-bottom: 1.5em;
+  font-size: 2em;
+  text-align: center;
+}
+.lore-skip {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 0.7em;
+  padding: 0.3em 0.7em;
+  border-radius: 6px;
+  background: #222;
+  color: #fff;
+  border: 1px solid #ff3c3c;
+  cursor: pointer;
+  opacity: 0.7;
+  z-index: 10;
+}
+
+/* ===================== */
+/* Game Over / Victory   */
+/* ===================== */
+.overlay-gameover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  background: rgba(0,0,0,0.7);
+}
+.finisher-screen {
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+  background: rgba(0,0,0,0.85);
+  border-radius: 24px;
+  box-shadow: 0 0 32px #000a, 0 0 0 3px #ff3c3c;
+  padding: 2em 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.end-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1em;
+}
+.end-title {
+  font-size: 2.5em;
+  letter-spacing: 2px;
+  margin: 0;
+  color: #ff3c3c;
+}
+.end-title.victory {
+  color: #ffec80;
+}
+.end-title.defeat {
+  color: #ff3c3c;
+}
+.end-body {
+  width: 100%;
+}
+.end-text {
+  color: #fff;
+  font-size: 1.1em;
+  margin-bottom: 2em;
+  text-align: center;
+}
+.end-actions.center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+/* Fade-in and fade-out transitions for screens */
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+/* ===================== */
+/* Inventory boxes styles */
+/* ===================== */
+.inv-boxes {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+}
+.inv-slot {
+  width: 48px;
+  height: 48px;
+  background: #222;
+  border: 2px solid #ff3c3c;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inv-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+.inv-empty {
+  width: 36px;
+  height: 36px;
+  background: #444;
+  border-radius: 6px;
+}
+
+/* ===================== */
+/* Name entry start btn  */
+/* ===================== */
+.name-start-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 1em;
+}
+
+/* ===================== */
+/* Welcome screen        */
+/* ===================== */
+.welcome-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+  animation: fadeInWelcome 1s;
+}
+@keyframes fadeInWelcome {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ===================== */
+/* Lore screen           */
+/* ===================== */
+.lore-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  width: 100vw;
+  max-width: 50vw;
+  overflow: hidden;
+  padding: 2em 2em;
+  background: rgba(0,0,0,0.85);
+  border-radius: 24px;
+  box-shadow: 0 0 32px #000a, 0 0 0 3px #ff3c3c;
+  animation: fadeInLore 0.7s;
+  position: relative;
+  z-index: 4; /* lore on top of HUD */
+}
+.lore-text {
+  max-width: 700px;
+  color: #fff;
+  font-size: 0.93em;
+  margin-bottom: .1em;
+  text-align: justify;
+  line-height: 1.5;
+}
+.lore-challenge {
+  color: #ff3c3c;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-top: 1.5em;
+  text-align: center;
+}
+.lore-continue {
+  margin-top: 1em;
+  font-size: 0.7em;
+  padding: 0.5em 1.2em;
+}
+@keyframes fadeInLore {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ===================== */
+/* Fade out transition   */
+/* ===================== */
+.fade-out {
+  animation: fadeOutScreen 1s forwards;
+}
+@keyframes fadeOutScreen {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.fade-in {
+  opacity: 1;
+  animation: fadeInScreen 1s;
+}
+@keyframes fadeInScreen {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===================== */
+/* Buttons container     */
+/* ===================== */
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 24px;
+  position: relative;
+  z-index: 5; /* keep buttons clickable */
+}
+
+/* ===================== */
+/* Game content/layout   */
+/* ===================== */
+.game-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 3; /* safe base */
+}
+.game-main-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 5; /* ensure main game is above HUD */
+}
+
+/* Shake animations */
+.game-main-layout.shake.shake-low {
+  animation: vibrate-low 0.5s linear both;
+}
+.game-main-layout.shake.shake-mid {
+  animation: vibrate-mid 0.7s linear both;
+}
+.game-main-layout.shake.shake-high {
+  animation: vibrate-high 1s linear both;
+}
+@keyframes vibrate-low {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes vibrate-mid {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-4px, 4px); }
+  40% { transform: translate(4px, -4px); }
+  60% { transform: translate(-4px, 4px); }
+  80% { transform: translate(4px, -4px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes vibrate-high {
+  0% { transform: translate(0, 0); }
+  10% { transform: translate(-8px, 8px); }
+  20% { transform: translate(8px, -8px); }
+  30% { transform: translate(-8px, 8px); }
+  40% { transform: translate(8px, -8px); }
+  50% { transform: translate(-8px, 8px); }
+  60% { transform: translate(8px, -8px); }
+  70% { transform: translate(-8px, 8px); }
+  80% { transform: translate(8px, -8px); }
+  90% { transform: translate(-8px, 8px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* ===================== */
+/* HP & Stats HUD        */
+/* ===================== */
+.stats-upperleft {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  background: rgba(0,0,0,0.5);
+  padding: 5px 5px;
+  border-radius: 16px;
+  border: 2px solid #ff3c3c;
+  min-width: 10px;
+  box-shadow: 0 2px 16px #000a;
+  z-index: 2; /* stays below main gameplay */
+}
+
+.stats-name {
+  font-size: 1em;
+  color: #fffafa;
+  margin-bottom: 4px;
+  font-family: 'Press Start 2P', cursive;
+  letter-spacing: 2px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #000000 0%, #000000 100%);
+  border: 2px solid #000000;
+  box-shadow: 0 2px 12px #000a;
+}
+.stats-hp {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.hp-label { color: #ff3c3c; font-weight: bold; }
+.hp-bar {
+  width: 100px;
+  height: 8px;
+  background: #222;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 0 6px;
+  border: 1px solid #ff3c3c;
+}
+.hp-fill.hp-good { background: #3cff3c; height: 100%; }
+.hp-fill.hp-warn { background: #fff23c; height: 100%; }
+.hp-fill.hp-bad { background: #ff3c3c; height: 100%; }
+.hp-fill {
+  transition: width 0.5s cubic-bezier(.4,1.5,.5,1), background 0.3s;
+}
+.hp-value { color: #fff; font-size: 0.9em; }
+.stats-inventory { font-size: 0.5em; color: #fff; }
+.inv-title { color: #ff3c3c; font-weight: bold; margin-right: 6px; }
+
+.hp-icon {
+  width: 32px;
+  height: 32px;
+  margin-left: 2px;
+  
+}
+
+/* ===================== */
+/* Choices styling       */
+/* ===================== */
+.game-choice.solo {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 6; /* ensure choices always clickable */
+}
+.game-choice {
+  width: 48%;
+  min-height: 120px;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1%;
+  position: relative;
+  z-index: 6;
+}
+.game-choice.left { margin-right: 2.5%; }
+.game-choice.right { margin-left: 2.5%; }
+
+/* ===================== */
+/* General typography    */
+/* ===================== */
+body, html, #root, * {
+  font-family: 'Press Start 2P', cursive !important;
+}
+.scene-text {
+  text-align: center;
+}
+.game-choice button {
+  font-family: 'Press Start 2P', cursive;
+}
+
+/* ===================== */
+/* Game containers       */
+/* ===================== */
+.game-upper {
+  width: 980px;
+  min-height: 100px;
+  background: rgba(20, 20, 20, 0.85);
+  border-radius: 16px 16px 0 0;
+  border: 2px solid #ff3c3c;
+  box-shadow: 0 4px 16px #000a;
+  padding: 32px 24px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+}
+.game-lower {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 1000px;
+  position: relative;
+  z-index: 5;
+}
+
+/* ===================== */
+/* Fonts & root bg       */
+/* ===================== */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  font-family: 'Press Start 2P', cursive;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #ffffff;
+  background: url('src/assets/hellcome.png') no-repeat center center fixed;
+  background-size: cover;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  image-rendering: pixelated;
+  font-family: 'Press Start 2P', cursive !important;
+}
+
+body, html, #root {
+  height: 100%;
+  width: 100%;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* ===================== */
+/* Headings              */
+/* ===================== */
+h1 {
+  font-size: 2em;
+  line-height: 1.2;
+  text-align: center;
+  color: #ff3c3c;
+  text-shadow: 2px 2px 0px #000;
+}
+
+/* ===================== */
+/* Buttons               */
+/* ===================== */
+button {
+  border-radius: 4px;
+  border: 2px solid #ff3c3c;
+  padding: 0.8em 1.5em;
+  font-size: 0.8em;
+  font-weight: bold;
+  font-family: 'Press Start 2P', cursive;
+  background-color: #000000;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 7; /* buttons always on top */
+}
+button:hover {
+  background-color: #ff3c3c;
+  color: #000;
+  border-color: #fff;
+}
+button:focus,
+button:focus-visible {
+  outline: 3px solid #fff;
+}
+
+/* ===================== */
+/* Input fields          */
+/* ===================== */
+.name-input {
+  font-family: 'Press Start 2P', cursive;
+  padding: 0.6em;
+  font-size: 0.8em;
+  border: 2px solid #ff3c3c;
+  background: #000;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1em;
+  position: relative;
+  z-index: 6;
+}
+
+/* ===================== */
+/* End actions           */
+/* ===================== */
+.end-actions.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+  position: relative;
+  z-index: 6;
+}
+
