@@ -3,7 +3,6 @@ import useLocalStorage from '../hooks/useLocalStorage';
 import LoreScreen from "./LoreScreen";
 import GameOverScreen from "./GameOverScreen";
 import { useGame } from "../context/GameContext";
-import Toast from "./Toast";
 import hellcome from "../assets/hellcome.png";
 import heartImg from "../assets/heart.png";
 
@@ -42,8 +41,6 @@ const AswangHunter = () => {
     setLastItemGained,
     story,
     playAgain,
-    toasts,
-    setToasts,
   } = useGame();
 
   // Play Again handler
@@ -53,22 +50,12 @@ const AswangHunter = () => {
     setStep(0);
   };
 
-  // Toast handler
-  const addToast = (message, type) => {
-    const id = Date.now();
-    setToasts((prev) => [...prev, { id, message, type }]);
-  };
-
-  const removeToast = (id) => {
-    setToasts((prev) => prev.filter((t) => t.id !== id));
-  };
 
   // Handle choice selection
   const handleChoice = (choice) => {
     if (choice.damage) {
       const newHP = Math.max(0, playerHP - choice.damage);
       setPlayerHP(newHP);
-      addToast(`You took ${choice.damage} damage!`, "damage");
       if (newHP <= 0) {
         setIsGameOver(true);
         return;
@@ -77,7 +64,6 @@ const AswangHunter = () => {
     if (choice.item) {
       setInventory([...inventory, choice.item]);
       setLastItemGained(choice.item);
-      addToast(`You got ${choice.item}!`, "success");
     }
     setCurrentStoryNode(choice.to);
 
@@ -98,7 +84,6 @@ const AswangHunter = () => {
         if (nextNode.onArrive.takeDamage) {
           const newHP = Math.max(0, playerHP - nextNode.onArrive.takeDamage);
           setPlayerHP(newHP);
-          addToast(`You took ${nextNode.onArrive.takeDamage} damage!`, "damage");
           if (newHP <= 0) {
             setIsGameOver(true);
           }
@@ -297,16 +282,7 @@ const AswangHunter = () => {
         </div>
       </div>
 
-      {/* Toasts */}
-      <div className="fixed bottom-5 right-5 flex flex-col gap-2">
-        {toasts.map((toast) => (
-          <Toast
-            key={toast.id}
-            {...toast}
-            onClose={removeToast}
-          />
-        ))}
-      </div>
+      {/* Toasts removed */}
     </div>
   );
 };

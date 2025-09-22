@@ -51,7 +51,7 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-.name-bg {
+.name-bg {  
   min-height: 100vh;
   width: 100vw;
   background: url('src/assets/welcomearch.png') center center / cover no-repeat;

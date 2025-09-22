@@ -18,7 +18,6 @@ export const GameProvider = ({ children }) => {
   const [isGameOver, setIsGameOver] = useLocalStorage('isGameOver', false);
   const [isVictory, setIsVictory] = useLocalStorage('isVictory', false);
   const [lastItemGained, setLastItemGained] = useLocalStorage('lastItemGained', null);
-  const [toasts, setToasts] = useLocalStorage('toasts', []);
 
   // 🔹 Reset game state
   const resetGame = () => {
@@ -29,7 +28,6 @@ export const GameProvider = ({ children }) => {
     setIsGameOver(false);
     setIsVictory(false);
     setLastItemGained(null);
-    setToasts([]);
   };
 
   // 🔹 Start a new game
@@ -41,7 +39,6 @@ export const GameProvider = ({ children }) => {
     setIsGameOver(false);
     setIsVictory(false);
     setLastItemGained(null);
-    setToasts([]);
   };
 
   // 🔹 Play again
@@ -53,7 +50,6 @@ export const GameProvider = ({ children }) => {
     setIsGameOver(false);
     setIsVictory(false);
     setLastItemGained(null);
-    setToasts([]);
   };
 
   // 🔹 Make a choice and move to next story node
@@ -88,17 +84,6 @@ export const GameProvider = ({ children }) => {
     }
   };
 
-  // 🔹 Add toast
-  const addToast = (message) => {
-    const id = Date.now();
-    setToasts([...toasts, { id, message }]);
-  };
-
-  // 🔹 Remove toast
-  const removeToast = (id) => {
-    setToasts(toasts.filter(t => t.id !== id));
-  };
-
   const value = {
     playerName,
     setPlayerName,
@@ -112,17 +97,13 @@ export const GameProvider = ({ children }) => {
     setIsGameOver,
     isVictory,
     setIsVictory,
-    lastItemGained,
-    setLastItemGained,
-    toasts,
-    setToasts,
-    story,
-    startGame,
-    playAgain,
-    makeChoice,
-    applySceneEffects,
-    addToast,
-    removeToast,
+  lastItemGained,
+  setLastItemGained,
+  story,
+  startGame,
+  playAgain,
+  makeChoice,
+  applySceneEffects,
   };
 
   return (
